@@ -1,0 +1,39 @@
+/* ==UserStyle==
+@name         YouTube-quiet
+@namespace    https://github.com/tim-tx
+@version      1.0.0
+@description  Selectively hide comments, recommendations, etc. on YouTube
+@homepageURL  https://github.com/tim-tx/YouTube-quiet
+@supportURL   https://github.com/tim-tx/YouTube-quiet/issues
+@license      unlicense
+@preprocessor stylus
+@var checkbox hide-comments   "Hide comments & chat" 1
+@var checkbox hide-clarifybox "Hide clarify box"     1
+@var checkbox hide-related    "Hide recommendations" 1
+@var checkbox hide-likes      "Hide like buttons"    0
+==/UserStyle== */
+@-moz-document domain("youtube.com") {
+    if hide-comments {
+        #comments,
+        #chat,
+        ytd-comments {
+            display: none;
+        }
+    }
+    if hide-clarifybox {
+        #clarify-box,
+        ytd-clarification-renderer {
+            display: none;
+        }
+    }
+    if hide-related {
+        #secondary {
+            display: none;
+        }
+    }
+    if hide-likes {
+        #top-level-buttons > ytd-toggle-button-renderer {
+            display: none;
+        }
+    }
+}
