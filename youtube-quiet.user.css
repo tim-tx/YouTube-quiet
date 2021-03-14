@@ -9,7 +9,8 @@
 @preprocessor stylus
 @var checkbox hide-comments   "Hide comments & chat" 1
 @var checkbox hide-clarifybox "Hide clarify box"     1
-@var checkbox hide-related    "Hide recommendations" 1
+@var checkbox hide-related    "Hide recommendations" 0
+@var checkbox hide-endscreen  "Hide end screen"      0
 @var checkbox hide-likes      "Hide like buttons"    0
 ==/UserStyle== */
 @-moz-document domain("youtube.com") {
@@ -28,6 +29,11 @@
     }
     if hide-related {
         #secondary {
+            display: none;
+        }
+    }
+    if hide-endscreen {
+        .ytp-show-tiles {
             display: none;
         }
     }
