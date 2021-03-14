@@ -33,7 +33,8 @@
         }
     }
     if hide-endscreen {
-        .ytp-show-tiles {
+        .ytp-show-tiles,
+        .ytp-ce-element {
             display: none;
         }
     }
