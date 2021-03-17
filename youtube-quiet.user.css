@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube-quiet
 @namespace    https://github.com/tim-tx
-@version      1.1.3
+@version      1.1.4
 @description  Selectively hide comments, recommendations, etc. on YouTube
 @homepageURL  https://github.com/tim-tx/YouTube-quiet
 @supportURL   https://github.com/tim-tx/YouTube-quiet/issues
@@ -12,6 +12,7 @@
 @var checkbox hide-related    "Hide recommendations" 0
 @var checkbox hide-endscreen  "Hide end screen"      0
 @var checkbox hide-likes      "Hide like buttons"    0
+@var checkbox hide-summary    "Hide text summary"    0
 @var checkbox hide-progress   "Hide progress bar"    0
 ==/UserStyle== */
 @-moz-document domain("youtube.com") {
@@ -47,6 +48,11 @@
     }
     if hide-progress {
         .ytp-chrome-bottom {
+            display: none;
+        }
+    }
+    if hide-summary {
+        #container > ytd-expander {
             display: none;
         }
     }
