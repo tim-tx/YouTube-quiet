@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube-quiet
 @namespace    https://github.com/tim-tx
-@version      1.1.4
+@version      1.1.5
 @description  Selectively hide comments, recommendations, etc. on YouTube
 @homepageURL  https://github.com/tim-tx/YouTube-quiet
 @supportURL   https://github.com/tim-tx/YouTube-quiet/issues
@@ -47,7 +47,8 @@
         }
     }
     if hide-progress {
-        .ytp-chrome-bottom {
+        .ytp-progress-bar-container,
+        .ytp-time-display {
             display: none;
         }
     }
