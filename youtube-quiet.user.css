@@ -1,21 +1,22 @@
 /* ==UserStyle==
 @name         YouTube-quiet
 @namespace    https://github.com/tim-tx
-@version      1.1.5
+@version      1.2.0
 @description  Selectively hide comments, recommendations, etc. on YouTube
 @homepageURL  https://github.com/tim-tx/YouTube-quiet
 @supportURL   https://github.com/tim-tx/YouTube-quiet/issues
 @license      unlicense
 @preprocessor stylus
-@var checkbox hide-comments   "Hide comments & chat" 1
-@var checkbox hide-clarifybox "Hide clarify box"     1
-@var checkbox hide-related    "Hide recommendations" 0
-@var checkbox hide-endscreen  "Hide end screen"      0
-@var checkbox hide-likes      "Hide like buttons"    0
-@var checkbox hide-summary    "Hide text summary"    0
-@var checkbox hide-progress   "Hide progress bar"    0
+@var checkbox hide-comments   "Hide comments & chat"       1
+@var checkbox hide-clarifybox "Hide clarify box"           1
+@var checkbox hide-related    "Hide recommendations"       0
+@var checkbox hide-endscreen  "Hide end screen"            0
+@var checkbox hide-likes      "Hide like buttons"          0
+@var checkbox hide-summary    "Hide text summary"          0
+@var checkbox hide-progress   "Hide progress bar"          0
+@var checkbox hide-thumbnails "Hide front page thumbnails" 0
 ==/UserStyle== */
-@-moz-document domain("youtube.com") {
+@-moz-document regexp("https?:\/\/(www\.)?youtube\.com\/watch.*") {
     if hide-comments {
         #comments,
         #chat,
@@ -54,6 +55,14 @@
     }
     if hide-summary {
         #container > ytd-expander {
+            display: none;
+        }
+    }
+}
+@-moz-document regexp("https?:\/\/(www\.)?youtube\.com\/") {
+    if hide-thumbnails {
+        ytd-thumbnail,
+        div.rich-thumbnail.skeleton-bg-color {
             display: none;
         }
     }
