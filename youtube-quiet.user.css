@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube-quiet
 @namespace    https://github.com/tim-tx
-@version      1.2.0
+@version      1.2.1
 @description  Selectively hide comments, recommendations, etc. on YouTube
 @homepageURL  https://github.com/tim-tx/YouTube-quiet
 @supportURL   https://github.com/tim-tx/YouTube-quiet/issues
@@ -16,7 +16,7 @@
 @var checkbox hide-progress   "Hide progress bar"          0
 @var checkbox hide-thumbnails "Hide front page thumbnails" 0
 ==/UserStyle== */
-@-moz-document regexp("https?:\/\/(www\.)?youtube\.com\/watch.*") {
+@-moz-document domain("youtube.com") {
     if hide-comments {
         #comments,
         #chat,
@@ -58,8 +58,6 @@
             display: none;
         }
     }
-}
-@-moz-document regexp("https?:\/\/(www\.)?youtube\.com\/") {
     if hide-thumbnails {
         ytd-thumbnail,
         div.rich-thumbnail.skeleton-bg-color {
