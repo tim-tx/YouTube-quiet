@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         YouTube-quiet
 @namespace    https://github.com/tim-tx
-@version      1.2.1
+@version      1.2.2
 @description  Selectively hide comments, recommendations, etc. on YouTube
 @homepageURL  https://github.com/tim-tx/YouTube-quiet
 @supportURL   https://github.com/tim-tx/YouTube-quiet/issues
@@ -31,7 +31,7 @@
         }
     }
     if hide-related {
-        #secondary {
+        ytd-watch-flexy > #columns > #secondary {
             display: none;
         }
     }
