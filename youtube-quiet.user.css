@@ -1,13 +1,14 @@
 /* ==UserStyle==
 @name         YouTube-quiet
 @namespace    https://github.com/tim-tx
-@version      1.2.2
+@version      1.3.0
 @description  Selectively hide comments, recommendations, etc. on YouTube
 @homepageURL  https://github.com/tim-tx/YouTube-quiet
 @supportURL   https://github.com/tim-tx/YouTube-quiet/issues
 @license      unlicense
 @preprocessor stylus
-@var checkbox hide-comments   "Hide comments & chat"       1
+@var checkbox hide-comments   "Hide comments"              1
+@var checkbox hide-chat       "Hide chat"                  1
 @var checkbox hide-clarifybox "Hide clarify box"           1
 @var checkbox hide-related    "Hide recommendations"       0
 @var checkbox hide-endscreen  "Hide end screen"            0
@@ -15,12 +16,17 @@
 @var checkbox hide-summary    "Hide text summary"          0
 @var checkbox hide-progress   "Hide progress bar"          0
 @var checkbox hide-thumbnails "Hide front page thumbnails" 0
+@var checkbox hide-promotion  "Hide 'paid promotion' note" 0
 ==/UserStyle== */
 @-moz-document domain("youtube.com") {
     if hide-comments {
         #comments,
-        #chat,
         ytd-comments {
+            display: none;
+        }
+    }
+    if hide-chat {
+        #chat {
             display: none;
         }
     }
@@ -31,6 +37,11 @@
         }
     }
     if hide-related {
+        ytd-watch-flexy > #columns > #secondary > #secondary-inner > #related {
+            display: none;
+        }
+    }
+    if hide-related and hide-chat {
         ytd-watch-flexy > #columns > #secondary {
             display: none;
         }
@@ -61,6 +72,11 @@
     if hide-thumbnails {
         ytd-thumbnail,
         div.rich-thumbnail.skeleton-bg-color {
+            display: none;
+        }
+    }
+    if hide-promotion {
+        div.ytp-paid-content-overlay-text {
             display: none;
         }
     }
